@@ -41,30 +41,65 @@ def q2():
 #   Caso o valor somado seja maior que 20, este deverá ser apresentado
 #   somando-se a ele mais 8, caso o valor somado seja menor ou igual a
 #   20, este deverá ser apresentado subtraindo-se 5.
+def q3():
+ n1 = int(input("Digite um número: "))
+ n2 = int(input("Digite um número: "))
+ soma = n1 + n2
 
-n1 = int(input("Digite um número: "))
-n2 = int(input("Digite um número: "))
-soma = n1 + n2
-
-if soma > 20:
-    print(f"{soma} + 8 = ", soma + 8)
-if soma <= 20:
-    print(f"{soma} - 5 = ", soma - 5)
+ if soma > 20:
+     print(f"{soma} + 8 = ", soma + 8)
+ if soma <= 20:
+     print(f"{soma} - 5 = ", soma - 5)
 #3. Faça um programa que leia um número e imprima uma das duas mensagens:
 #   "É múltiplo de 3"ou "Não é múltiplo de 3".
 
+def q3():
+ num = int(input("Digite um número: "))
+
+ if num % 3 == 0:
+    print(f"{num} é múltiplo de 3.")
+ else:
+    print(f"{num} não é múltiplo de 3.")
+
 #4. Faça um programa que leia um número e informe se ele é ou não divisível por 5.
+def q4():
+ n1 = int(input("Digite um número: "))
+
+ if n1 % 5 == 0:
+     print(f"{n1} é divisivel por 5.")
+ else:
+     print(f"{n1} não é divisel por 5.")
 
 #5. Faça um programa que leia um número e informe se ele é divisível por 3 e por 7.
+
+num = int(input("Insira um número: "))
+
+if num % 3 == 0 and num % 7 == 0:
+   print(f"{num} é divisivel por 3 e 7.")
+else:
+   print(f"{num} não é divisel por 3 e 7")
 
 #6. A prefeitura do Rio de Janeiro abriu uma linha de crédito para os funcionários
 #   estatutários. O valor máximo da prestação não poderá ultrapassar 30% do salário
 #   bruto. Faça um programa que permita entrar com o salário bruto
 #   e o valor da prestação e informar se o empréstimo pode ou não ser concedido.
 
+salario = float(input("Informe o salário: "))
+prestacao = float(input("Informe a prestação: "))
+
+sal = salario * 0.3
+
+if salario <= prestacao:
+   print(":::::::::::::::::::::::::O empréstimo pode ser consedido.:::::::::::::::::::::::::")
+else:
+   print(":::::::::::::::::::::::::O empréstimo não pode ser concedido:::::::::::::::::::::::::")
 #7. Faça um programa que leia um número e indique se o número está compreendido
 #   entre 20 e 50 ou não.
 
+num = int(input('Informe um número: '))
+
+if num >= 20 and num <= 50:
+   print(f':::::::::::::::::::::::::{num} está entre 20 e 50:::::::::::::::::::::::::')
 #8. Faça um programa que leia um número e imprima uma das mensagens:
 #   "Maior do que 20", "Igual a 20"ou "Menor do que 20".
 
