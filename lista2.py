@@ -72,50 +72,112 @@ def q4():
 
 #5. Faça um programa que leia um número e informe se ele é divisível por 3 e por 7.
 
-num = int(input("Insira um número: "))
+def q5():
+ num = int(input("Insira um número: "))
 
-if num % 3 == 0 and num % 7 == 0:
-   print(f"{num} é divisivel por 3 e 7.")
-else:
-   print(f"{num} não é divisel por 3 e 7")
+ if num % 3 == 0 and num % 7 == 0:
+     print(f"{num} é divisivel por 3 e 7.")
+ else:
+     print(f"{num} não é divisel por 3 e 7")
 
 #6. A prefeitura do Rio de Janeiro abriu uma linha de crédito para os funcionários
 #   estatutários. O valor máximo da prestação não poderá ultrapassar 30% do salário
 #   bruto. Faça um programa que permita entrar com o salário bruto
 #   e o valor da prestação e informar se o empréstimo pode ou não ser concedido.
 
-salario = float(input("Informe o salário: "))
-prestacao = float(input("Informe a prestação: "))
+def q6():
+ salario = float(input("Informe o salário: "))
+ prestacao = float(input("Informe a prestação: "))
 
-sal = salario * 0.3
+ sal = salario * 0.3
 
-if salario <= prestacao:
-   print(":::::::::::::::::::::::::O empréstimo pode ser consedido.:::::::::::::::::::::::::")
-else:
-   print(":::::::::::::::::::::::::O empréstimo não pode ser concedido:::::::::::::::::::::::::")
+ if salario <= prestacao:
+     print(":::::::::::::::::::::::::O empréstimo pode ser consedido.:::::::::::::::::::::::::")
+ else:
+     print(":::::::::::::::::::::::::O empréstimo não pode ser concedido:::::::::::::::::::::::::")
+
 #7. Faça um programa que leia um número e indique se o número está compreendido
 #   entre 20 e 50 ou não.
+def q7():
+ num = int(input('Informe um número: '))
+
+ if num >= 20 and num <= 50:
+     print(f':::::::::::::::::::::::::{num} está entre 20 e 50:::::::::::::::::::::::::')
+ else:
+     print(f'::::::::{num} não está entre 20 e 50::::::::')
+
+#8. Faça um programa que leia um número e imprima uma das mensagens:
+#   "Maior do que 20", "Igual a 20"ou "Menor do que 20".
 
 num = int(input('Informe um número: '))
 
-if num >= 20 and num <= 50:
-   print(f':::::::::::::::::::::::::{num} está entre 20 e 50:::::::::::::::::::::::::')
-#8. Faça um programa que leia um número e imprima uma das mensagens:
-#   "Maior do que 20", "Igual a 20"ou "Menor do que 20".
+if num > 20:
+   print('::::::::Maior do que 20::::::::')
+
+elif num == 20:
+   print('::::::::Igual a 20::::::::')
+else:
+   print('::::::::Menor que 20::::::::')
 
 #9. Faça um programa que permita entrar com o ano de nascimento da pessoa e com o
 #   ano atual. O programa deve imprimir a idade da pessoa. Não se esqueça de
 #   verificar se o ano de nascimento informado é válido.
 
+def q9():
+ ano_nasc = int(input('Informe o ano de nascimento: '))
+ ano_atual = int (input('Informe o ano atual: '))
+
+ idade = ano_atual - ano_nasc
+ print('A idade é : ', idade)
+
 #10. Faça um programa que leia três números inteiros e imprima os três em ordem
 #crescente.
-        
+def q10():
+ num1 = int(input("Digite o primeiro número: "))
+ num2 = int(input("Digite o segundo número: "))
+ num3 = int(input("Digite o terceiro número: "))
+
+ if num1 <= num2 and num1 <= num3:
+     if num2 <= num3:
+         print(num1, num2, num3)
+     else:
+         print(num1, num3, num2)
+ elif num2 <= num1 and num2 <= num3:
+     if num1 <= num3:
+         print(num2, num1, num3)
+     else:
+         print(num2, num3, num1)
+ else:
+     if num1 <= num2:
+         print(num3, num1, num2)
+     else:
+         print(num3, num2, num1)
+
+
 #11. Faça um programa que leia 3 números e imprima o maior deles.
 
+n1 = int(input('Informe um número: '))
+n2 = int(input('Informe mais um número: '))
+n3 = int(input('Informe mais um número: '))
+
+if n1 > n2 and n1 > n3:
+   print('O maior número é: ', n1)
+elif n2 > n1 and n2 > n3:
+   print('O maior número é: ', n2)
+else:
+    print('O maior número é: ', n3)
 #12. Faça um programa que leia a idade de uma pessoa e informe:
 #• Se é maior de idade
 #• Se é menor de idade
 #• Se é maior de 65 anos
+
+idade = int(input('Idade:'))
+if idade < 18:
+        print('Menor de idade')    
+elif idade < 65:
+        print('Maior de idade')
+else:
+        print('Idoso')
 
 #13. Faça um programa que permita entrar com o nome, a nota da prova 1 e a nota
 #da prova 2 de um aluno. O programa deve imprimir o nome, a nota da prova 1,
