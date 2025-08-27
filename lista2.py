@@ -185,18 +185,19 @@ def q12():
 #"Reprovado"ou "em Prova Final"(a média é 7 para aprovação, menor que 3 para
 #reprovação e as demais em prova final).
 
-nome = str(input("Digite o nome: "))
-nota1 = float(input("Digite a primeira nota: "))
-nota2 = float(input("Digite a nota 2: "))
+def q13():
+ nome = str(input("Digite o nome: "))
+ nota1 = float(input("Digite a primeira nota: "))
+ nota2 = float(input("Digite a nota 2: "))
 
-medianota = (nota1 + nota2) /2
+ medianota = (nota1 + nota2) /2
 
-if medianota >= 7:
-    print(f'{nome} nota na prova 1 --> {nota1} e nota na prova 2 --> {nota2} a média foi de --> {medianota} e está aprovado.')
-elif medianota < 3:
-    print(f'{nome} nota na prova 1 --> {nota1} e nota na prova 2 --> {nota2} a média foi de --> {medianota} e está reprovado.')
-else:
-    print(f'{nome} nota na prova 1 --> {nota1} e nota na prova 2 --> {nota2} a média foi de --> {medianota} e está de prova final.')
+ if medianota >= 7:
+     print(f'{nome} nota na prova 1 --> {nota1} e nota na prova 2 --> {nota2} a média foi de --> {medianota} e está aprovado.')
+ elif medianota < 3:
+     print(f'{nome} nota na prova 1 --> {nota1} e nota na prova 2 --> {nota2} a média foi de --> {medianota} e está reprovado.')
+ else:
+     print(f'{nome} nota na prova 1 --> {nota1} e nota na prova 2 --> {nota2} a média foi de --> {medianota} e está de prova final.')
 
 #14. Faça um programa que permita entrar com o salário de uma pessoa e imprima o
 #desconto do INSS segundo a tabela seguir:
@@ -206,9 +207,35 @@ else:
 #Maior que R$1200,00 e menor ou igual a R$2000,00 25%
 #Maior que R$2000,00 30%
 
+salario = float(input('Informe o salário: '))
+
+if salario <= 600:
+   print('Isento de imposto.')
+
+elif salario <= 1200:
+    desconto = salario * 0.20
+    print(f"Desconto do INSS (20%): R$ {desconto: }")
+elif salario <= 2000:
+    desconto = salario * 0.25
+    print(f"Desconto do INSS (25%): R$ {desconto: }")
+else:
+    desconto = salario * 0.30
+    print(f"Desconto do INSS (30%): R$ {desconto: }")
+
 #15. Um comerciante comprou um produto e quer vendê-lo com um lucro de 45% se o
 #valor da compra for menor que R$20,00, caso contrário, o lucro será de 30%.
 #Faça um programa que leia o valor do produto e imprima o valor da venda.
+
+valor_compra = float(input("Digite o valor de compra do produto: R$ "))
+
+if valor_compra < 20.00:
+    lucro = valor_compra * 0.45
+else:
+    lucro = valor_compra * 0.30
+
+valor_venda = valor_compra + lucro
+
+print(f"Valor de venda: R$ {valor_venda: }")
 
 #16. A confederação brasileira de natação irá promover eliminatórias para o
 #próximo mundial. Faça um programa que receba a idade de um nadador e imprima
@@ -219,6 +246,24 @@ else:
 #Juvenil A 11 - 13 anos
 #Juvenil B 14 - 17 anos
 #Sênior maiores de 18 anos
+
+idade = int(input("Digite a idade do nadador: "))
+
+
+if 5 <= idade <= 7:
+    categoria = "Infantil A"
+elif 8 <= idade <= 10:
+    categoria = "Infantil B"
+elif 11 <= idade <= 13:
+    categoria = "Juvenil A"
+elif 14 <= idade <= 17:
+    categoria = "Juvenil B"
+elif idade >= 18:
+    categoria = "Sênior"
+else:
+    categoria = "Sem categoria (idade abaixo da mínima permitida)"
+
+print(f"Categoria: {categoria}")
 
 #17. Depois da liberação do governo para as mensalidades dos planos de saúde,
 #as pessoas começaram a fazer pesquisas para descobrir um bom plano, não
@@ -233,9 +278,39 @@ else:
 #Acima de 59 até 65 anos R$250,00
 #Maior que 65 anos R$400,00
 
+nome = input("Digite o nome da pessoa: ")
+idade = int(input("Digite a idade da pessoa: "))
+
+if idade <= 10:
+    valor = 30.00
+elif idade <= 29:
+    valor = 60.00
+elif idade <= 45:
+    valor = 120.00
+elif idade <= 59:
+    valor = 150.00
+elif idade <= 65:
+    valor = 250.00
+else:
+    valor = 400.00
+
+print(f"{nome} deverá pagar R$ {valor: } pelo plano de saúde.")
+
 #18. Faça um programa que leia um número inteiro entre 1 e 12 e escreva o mês
 #correspondente. Caso o usuário digite um número fora desse intervalo, deverá
 #aparecer uma mensagem informando que não existe mês com este número.
+
+numero = int(input("Digite um número de 1 a 12: "))
+
+meses = [
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+]
+
+if 1 <= numero <= 12:
+    print(f"Mês correspondente: {meses[numero - 1]}")
+else:
+    print("Não existe mês com este número.")
 
 #19. Em um campeonato nacional de arco-e-flecha, tem-se equipes de três jogadores
 #para cada estado. Sabendo-se que os arqueiros de uma equipe não obtiveram o
@@ -245,6 +320,24 @@ else:
 #• Mostrar esses em ordem decrescente;
 #• Se a soma dos pontos for maior do que 100, imprimir a média aritmética entre eles,
 #  caso contrário, imprimir a mensagem "Equipe desclassificada".
+
+p1 = int(input("Digite os pontos do jogador 1: "))
+p2 = int(input("Digite os pontos do jogador 2: "))
+p3 = int(input("Digite os pontos do jogador 3: "))
+
+pontos = [p1, p2, p3]
+
+pontos.sort(reverse=True)
+
+print("Pontos em ordem decrescente:", pontos)
+
+soma = sum(pontos)
+
+if soma > 100:
+    media = soma / 3
+    print(f"Equipe classificada. Média de pontos: {media: }")
+else:
+    print("Equipe desclassificada.")
 
 #20. O banco XXX concederá um crédito especial com juros de 2% aos seus clientes de
 #acordo com o saldo médio no último ano. Faça um programa que leia o saldo médio
@@ -257,6 +350,20 @@ else:
 #de 1001 a 3000 40% do valor do saldo médio
 #acima de 3001 50% do valor do saldo médio
 
+saldo_medio = float(input("Digite o saldo médio do cliente: R$ "))
+
+if saldo_medio <= 500:
+    credito = 0
+elif saldo_medio <= 1000:
+    credito = saldo_medio * 0.30
+elif saldo_medio <= 3000:
+    credito = saldo_medio * 0.40
+else:
+    credito = saldo_medio * 0.50
+
+print(f"Saldo médio: R$ {saldo_medio: }")
+print(f"Crédito especial concedido: R$ {credito: }")
+
 #21. A biblioteca de uma Universidade deseja fazer um programa que leia o nome do
 #livro que será emprestado, o tipo de usuário (professor ou aluno) e possa
 #imprimir um recibo conforme mostrado a seguir. Considerar que o professor
@@ -265,9 +372,43 @@ else:
 #• Tipo de usuário:
 #• Total de dias:
 
+nome_livro = input("Digite o nome do livro: ")
+
+tipo_usuario = input("Digite o tipo de usuário (professor/aluno): ").strip().lower()
+
+if tipo_usuario == "professor":
+    dias = 10
+elif tipo_usuario == "aluno":
+    dias = 3
+else:
+    print("Tipo de usuário inválido. Use 'professor' ou 'aluno'.")
+    exit()
+
+print("\n--- Recibo de Empréstimo ---")
+print(f"Nome do livro: {nome_livro}")
+print(f"Tipo de usuário: {tipo_usuario.capitalize()}")
+print(f"Total de dias para devolução: {dias} dias")
+
 #22. Construa um programa que leia o percurso em quilômetros, o tipo do carro e
 #informe o consumo estimado de combustível, sabendo-se que um carro tipo A faz
 #12 km com um litro de gasolina, um tipo B faz 9 km e o tipo C 8 km por litro.
+
+# Entrada do percurso
+percurso = float(input("Digite o percurso em quilômetros: "))
+
+tipo_carro = input("Digite o tipo do carro (A, B ou C): ").strip().upper()
+
+if tipo_carro == "A":
+    consumo = percurso / 12
+elif tipo_carro == "B":
+    consumo = percurso / 9
+elif tipo_carro == "C":
+    consumo = percurso / 8
+else:
+    print("Tipo de carro inválido. Use A, B ou C.")
+    exit()
+
+print(f"Consumo estimado de combustível: {consumo:.2f} litros")
 
 #23. Crie um programa que informe a quantidade total de calorias de uma refeição
 #a partir da escolha do usuário que deverá informar o prato, a sobremesa, e
@@ -278,11 +419,44 @@ else:
 #Frango         250cal Mousse diet      170cal Suco de melão     100cal
 #Carne          350cal Mousse chocolate 200cal Refrigerante diet 65cal
 
+print("Escolha o prato:")
+print("1 - Vegetariano, 2 - Peixe, 3 - Frango, 4 - Carne")
+prato = int(input("Opção do prato: "))
+
+print("\nEscolha a sobremesa:")
+print("1 - Abacaxi, 2 - Sorvete diet, 3 - Mousse diet, 4 - Mousse chocolate")
+sobremesa = int(input("Opção da sobremesa: "))
+
+print("\nEscolha a bebida:")
+print("1 - Chá, 2 - Suco de laranja, 3 - Suco de melão, 4 - Refrigerante diet")
+bebida = int(input("Opção da bebida: "))
+
+# Validação e cálculo
+if prato in pratos and sobremesa in sobremesas and bebida in bebidas:
+    total_calorias = pratos[prato] + sobremesas[sobremesa] + bebidas[bebida]
+    print(f"\nTotal de calorias da refeição: {total_calorias} cal")
+else:
+    print("\nOpção inválida! Verifique os números digitados.")
+
 #24. A polícia rodoviária resolveu fazer cumprir a lei e vistoriar veículos para
 #cobrar dos motoristas o DUT. Sabendo-se que o mês em que o emplacamento do
 #carro deve ser renovado é determinado pelo último número da placa do mesmo,
 #faça um programa que, a partir da leitura da placa do carro, informe o mês
 #em que o emplacamento deve ser renovado.
+
+placa = input("Digite a placa do carro (ex: ABC1234): ").strip().upper()
+
+digitos = ''.join(filter(str.isdigit, placa))
+
+if digitos:
+    ultimo_digito = digitos[-1]
+    if ultimo_digito in meses:
+        mes = meses[ultimo_digito]
+        print(f"Mês de renovação do emplacamento: {mes}")
+    else:
+        print("Erro: Último dígito da placa inválido.")
+else:
+    print("Erro: Placa sem números válidos.")
 
 #25. A prefeitura contratou uma firma especializada para manter os níveis de
 #poluição considerados ideais para um país do 1º mundo. As indústrias,
@@ -294,3 +468,17 @@ else:
 #0,3 1º grupo
 #0,4 1º e 2º grupos
 #0,5 1º, 2º e 3º grupos
+
+
+indice = float(input("Digite o índice de poluição (ex: 0.3): "))
+
+if indice <= 0.25:
+    print("Índice dentro do aceitável. Nenhum grupo será intimado.")
+elif 0.25 < indice <= 0.3:
+    print("Atenção: 1º grupo de indústrias deve ser intimado.")
+elif 0.3 < indice <= 0.4:
+    print("Atenção: 1º e 2º grupos de indústrias devem ser intimados.")
+elif 0.4 < indice <= 0.5:
+    print("Atenção: 1º, 2º e 3º grupos de indústrias devem ser intimados.")
+else:
+    print("Índice crítico! Todos os grupos (1º, 2º e 3º) devem ser intimados imediatamente.")
