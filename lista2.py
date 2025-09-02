@@ -1,6 +1,8 @@
 '''
 Exercícios sobre os comandos de condição em python
 '''
+from datetime import date, datetime
+HOJE = datetime.now()
 
 def exemploSe():
     idade = int(input('Idade:'))
@@ -482,3 +484,13 @@ elif 0.4 < indice <= 0.5:
     print("Atenção: 1º, 2º e 3º grupos de indústrias devem ser intimados.")
 else:
     print("Índice crítico! Todos os grupos (1º, 2º e 3º) devem ser intimados imediatamente.")
+
+
+def q91():
+    data_str = input('Data de nascimento (dd/mm/aaaa): ')
+    print(f'Ano atual: {date.time.strftime(HOJE, "%Y")}')
+    data_nascimento = datetime.strptime(data_str, '%d/%m/%Y')
+    if data_nascimento > Hoje:
+        print('Data de nascimento inválida!')
+    else:
+        print(f'Idade: {int((HOJE - data_nascimento).days/365)} anos.')
