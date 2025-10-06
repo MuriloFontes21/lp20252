@@ -100,7 +100,7 @@ def q7():
      resultado += f"{NOME}\t{N1}\t{N2}\t{media}\n"
 
      print(resultado)
-     print(f'Média da Turma: {round(media_turma/MAX,1)})
+     print(f'Média da Turma: {round(media_turma/MAX,1)}')
 
 
 #8. Faça um programa que permita entrar com o nome e o salário bruto de 10 pessoas.
@@ -111,6 +111,13 @@ def q7():
 #Salário maior ou igual a R$1300,00 e menor que R$2300,00 10% do salário bruto
 #Salário maior ou igual a R$2300,00 15% do salário bruto
 
+def q8():
+
+    nome = input("Digite o nome: ")
+    salario = input("Digite o salário: ")
+
+    for _ in range (10):
+        
 #9. No dia da estreia do filme "Procurando Dory", uma grande emissora de TV realizou
 #uma pesquisa logo após o encerramento do filme. Cada espectador respondeu
 #a um questionário no qual constava sua idade e a sua opinião em relação ao filme:
@@ -130,6 +137,27 @@ def q7():
 #• O atleta mais jovem de cada time;
 #• O peso médio e a idade média de todos os participantes.
     
+def q10():
+    PAISES=3
+    JOGADORES=3
+    soma_peso = 0
+    soma_idade = 0
+    for pais in range(PAISES):
+        print(f'País: {pais}')
+        soma_peso_pais = 0
+        soma_idade_pais = 0
+        for _ in range(JOGADORES):
+            idade = int(input('Idade: '))
+            peso = int(input('Peso: '))
+            soma_peso_pais += peso
+            soma_idade_pais += idade
+            soma_peso += peso
+            soma_idade += idade
+        print(f'Idade média: {soma_idade_pais/JOGADORES}')
+        print(f'Peso médio: {soma_peso_pais/JOGADORES}')
+    print(f'Idade média geral: {soma_idade/JOGADORES*PAISES}')
+    print(f'Peso médio geral: {soma_peso/JOGADORES*PAISES}')
+
 #11. Construa um programa que leia vários números e informe quantos números
 #entre 100 e 200 foram digitados. Quando o valor 0 (zero) for lido, o algoritmo
 #deverá cessar sua execução.
