@@ -1,6 +1,10 @@
 '''
 Lista de Exercícios referentes a estruturas de iteração (repetição)
 '''
+def cabecalho (titulo):
+    print('========================================')
+    print(f'============= {titulo} ===============')
+    print('========================================')
 
 def exemploPara():
     for contador in range(10):
@@ -82,7 +86,22 @@ def q6():
 #imprimir a média geral da turma.
 
 def q7():
-     nome = input("Nome do aluno: ")
+     
+     resultado = "NOME\tN1\tN2\tMEDIA\N"
+     MAX = 3
+     media_turma = 0
+     for _  in range (15):   
+        
+      NOME = input("Nome: ")
+     N1 = round(float(input("Nota da Prova 1: ")),1)
+     N2 = round(float(input("Nota da Prova 2: ")),1)
+     media = round((N1 + N2) / 2,1)
+     media_turma += media 
+     resultado += f"{NOME}\t{N1}\t{N2}\t{media}\n"
+
+     print(resultado)
+     print(f'Média da Turma: {round(media_turma/MAX,1)})
+
 
 #8. Faça um programa que permita entrar com o nome e o salário bruto de 10 pessoas.
 #Após ler os dados, imprimir o nome e o valor da alíquota do imposto de renda
@@ -314,6 +333,41 @@ def q7():
 #analisadas.
 #Obs.: Para encerrar a entrada de dados, digite um número menor que zero para a
 #idade.
+cabecalho('QUESTÃO 20')
 
-questao = int(input('Questão a ser executada: '))
-eval(f'q{questao}()')
+menu = '''''
+    [1] - Imprimir nome
+    [2] - Imprimir produto
+    [3] - Imprimir média
+    [4] - Imprimir inteiro
+    [5] - Ler e imprimir números reais
+    [6] - Antecessor e Sucessor
+    [7] - Dados de cliente
+    [8] - Subtração
+    [9] - 1/4
+    [10] - Média Aritmética
+    [11] - Operações aritméticas básicas
+    [12] - Quadrado de um número
+    [13] - Saldo de poupança
+    [14] - Área e perímetro de um retângulo
+    [15] - Desconto em produto
+    [16] - Reajuste Salarial
+    [17] - Conversão de temperatura
+    [18] - Consumo de veículo
+    [19] - Juros de prestação atrasada
+    [20] - Conversão dólar-real
+    [21] - Reajuste Salarial
+    [22] - Conversão de temperatura
+    [23] - Consumo de veículo
+    [24] - Juros de prestação atrasada
+    [25] - Conversão dólar-real
+    [26]
+    [27]
+    [28]
+    [29]
+    [30]    
+    Digite a opção a ser executada: 
+'''
+
+opcao = input(menu)
+eval(f'q{opcao}()')
