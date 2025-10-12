@@ -28,16 +28,19 @@ def exemploEnquanto():
 
 #1.Faça um programa que imprima todos os números de 1 até 100.
 def q1():
+    cabecalho('QUESTÃO 1')
     for numero in range(100):
         print(numero+1, end=' ')
 
 #2. Faça um programa que imprima todos os números pares de 100 até 1.
 def q2():
+    cabecalho('QUESTÃO 2')
     for numero in range(100,1,-2):
         print(numero, end=' ')
 
 #3. Faça um programa que imprima os múltiplos de 5, no intervalo de 1 até 500.
 def q3():
+    cabecalho('QUESTÃO 3')
     for numero in range(5,501,5):
         print(numero, end=' ')
 
@@ -45,6 +48,7 @@ def q3():
 #pessoas.O programa deve imprimir o nome da pessoa se ela for do sexo masculino
 #e tiver mais de 21 anos.
 def q4():
+    cabecalho('QUESTÃO 4')
     MAX = 20
     for pessoa in range(MAX):
         nome = input('Nome: ')
@@ -57,6 +61,7 @@ def q4():
 #sucessivas, crie um programa que calcule o produto de dois números inteiros
 #lidos. Suponha que os números lidos sejam positivos.
 def q5():
+    cabecalho('QUESTÃO 5')
     num1 = int(input('Multiplicador: '))
     num2 = int(input('Multiplicando: '))
     soma = 0
@@ -72,6 +77,7 @@ def q5():
 # 1 1 2 3 5 8 13 21
 
 def q6():
+    cabecalho('QUESTÃO 6')
     ant = 0
     atu = 1
     for _ in range(20):
@@ -86,7 +92,7 @@ def q6():
 #imprimir a média geral da turma.
 
 def q7():
-     
+     cabecalho('QUESTÃO 7')
      resultado = "NOME\tN1\tN2\tMEDIA\N"
      MAX = 3
      media_turma = 0
@@ -112,12 +118,17 @@ def q7():
 #Salário maior ou igual a R$2300,00 15% do salário bruto
 
 def q8():
-
+    cabecalho('QUESTÃO 8')
     nome = input("Digite o nome: ")
     salario = input("Digite o salário: ")
 
-    for _ in range (10):
-        
+    for i in range (10):
+        if salario < 1300:
+            print(f'{nome} Isento!!!')
+        if salario >= 1300 and salario < 2300:
+            print(f'O valor da alíquota de {nome} é de {salario * 0.1}')
+        if salario >= 2300:
+            print(f'O valor da alíquota de {nome} é de {salario * 0.15}')
 #9. No dia da estreia do filme "Procurando Dory", uma grande emissora de TV realizou
 #uma pesquisa logo após o encerramento do filme. Cada espectador respondeu
 #a um questionário no qual constava sua idade e a sua opinião em relação ao filme:
@@ -138,6 +149,7 @@ def q8():
 #• O peso médio e a idade média de todos os participantes.
     
 def q10():
+    cabecalho('QUESTÃO 10')
     PAISES=3
     JOGADORES=3
     soma_peso = 0
