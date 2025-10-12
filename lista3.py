@@ -92,21 +92,18 @@ def q6():
 #imprimir a média geral da turma.
 
 def q7():
-     cabecalho('QUESTÃO 7')
-     resultado = "NOME\tN1\tN2\tMEDIA\N"
-     MAX = 3
-     media_turma = 0
-     for _  in range (15):   
-        
-      NOME = input("Nome: ")
-     N1 = round(float(input("Nota da Prova 1: ")),1)
-     N2 = round(float(input("Nota da Prova 2: ")),1)
-     media = round((N1 + N2) / 2,1)
-     media_turma += media 
-     resultado += f"{NOME}\t{N1}\t{N2}\t{media}\n"
-
-     print(resultado)
-     print(f'Média da Turma: {round(media_turma/MAX,1)}')
+    resultado = "NOME\tN1\tN2\tMEDIA\n"
+    MAX = 3
+    media_turma = 0
+    for _ in range(MAX):
+        nome = input('Nome: ')
+        n1 = round(float(input('Nota 1: ')),1)
+        n2 = round(float(input('Nota 2: ')),1)
+        media = round((n1 + n2) / 2,1)
+        media_turma += media
+        resultado += f'{nome}\t{n1}\t{n2}\t{media}\n'
+    print(resultado)
+    print (f' Média da Turma: {round(media_turma/MAX,1)}')
 
 
 #8. Faça um programa que permita entrar com o nome e o salário bruto de 10 pessoas.
@@ -119,16 +116,18 @@ def q7():
 
 def q8():
     cabecalho('QUESTÃO 8')
-    nome = input("Digite o nome: ")
-    salario = input("Digite o salário: ")
-
+    
     for i in range (10):
-        if salario < 1300:
+     nome = (input("Digite o nome: "))
+     salario = int(input("Digite o salário: "))
+
+     if salario < 1300:
             print(f'{nome} Isento!!!')
-        if salario >= 1300 and salario < 2300:
+     elif salario >= 1300 and salario < 2300:
             print(f'O valor da alíquota de {nome} é de {salario * 0.1}')
-        if salario >= 2300:
+     else:
             print(f'O valor da alíquota de {nome} é de {salario * 0.15}')
+    print(':::::FIM:::::')
 #9. No dia da estreia do filme "Procurando Dory", uma grande emissora de TV realizou
 #uma pesquisa logo após o encerramento do filme. Cada espectador respondeu
 #a um questionário no qual constava sua idade e a sua opinião em relação ao filme:
@@ -138,6 +137,8 @@ def q8():
 #• A quantidade de pessoas que responderam regular;
 #• A percentagem de pessoas que responderam bom entre todos os expectadores
 #analisados.
+def q9():
+    
 
 #10. Em um campeonato Europeu de Volleyball, se inscreveram 30 países. Sabendo-se
 #que na lista oficial de cada país consta, além de outros dados, peso e idade de 12
