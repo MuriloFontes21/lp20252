@@ -1,3 +1,4 @@
+import random
 '''
 Lista de Exercícios referentes a estruturas de iteração (repetição)
 '''
@@ -138,7 +139,34 @@ def q8():
 #• A percentagem de pessoas que responderam bom entre todos os expectadores
 #analisados.
 def q9():
-    
+ cabecalho('QUESTÃO 9')
+
+ total_pessoas = 20
+ soma_idade_excelente = 0
+ qtd_excelente = 0
+ qtd_regular = 0
+ qtd_bom = 0
+
+ for i in range(total_pessoas):
+     idade = int(input('Informe a idade: '))
+     opiniao = int(input('3 - excelente / 2 - bom / 1 - regular: '))
+
+     if opiniao ==  3:
+         soma_idade_excelente += idade
+         qtd_excelente += 1
+     elif opiniao == 2:
+         qtd_bom += 1
+     elif opiniao == 1:
+         qtd_regular += 1
+     else:
+         print(':::::Número inválido:::::') 
+ media_idade_excelente = soma_idade_excelente / qtd_excelente if qtd_excelente > 0 else 0 
+ percentual_bom = (qtd_bom / total_pessoas) * 100
+
+ print ('\n::::: Resultados :::::')
+ print(f'Média das idades de quem respondeu excelente: {media_idade_excelente}')
+ print(f'Quantidade de pessoas que responderam regular: {qtd_regular}')
+ print(f'Percentual de pessoas que responderam bom: {percentual_bom}%')
 
 #10. Em um campeonato Europeu de Volleyball, se inscreveram 30 países. Sabendo-se
 #que na lista oficial de cada país consta, além de outros dados, peso e idade de 12
@@ -149,7 +177,7 @@ def q9():
 #• O atleta mais jovem de cada time;
 #• O peso médio e a idade média de todos os participantes.
     
-def q10():
+ def q10():
     cabecalho('QUESTÃO 10')
     PAISES=3
     JOGADORES=3
@@ -174,11 +202,23 @@ def q10():
 #11. Construa um programa que leia vários números e informe quantos números
 #entre 100 e 200 foram digitados. Quando o valor 0 (zero) for lido, o algoritmo
 #deverá cessar sua execução.
+def q11():
+    cabecalho('QUESTÃO 11')
+    contador = 0    
+    while True:     
+        numero = random.randrange(201)
+        print(numero, end=' ')
+        contador += 1 if numero >= 100 and numero <= 200 else 0
+        if numero == 0:
+            break
+    print(f'\nQtde de números entre 100 e 200: {contador}')
 
 #12. Dado um país A, com 5 milhões de habitantes e uma taxa de natalidade de 3% ao
 #ano, e um país B com 7 milhões de habitantes e uma taxa de natalidade de 2% ao
 #ano, fazer um programa que calcule e imprima o tempo necessário para que a
 #população do país A ultrapasse a população do país B.
+def q12():
+    cabecalho('QUESTÃO 12')
 
 #13. Uma empresa de fornecimento de energia elétrica faz a leitura mensal dos medidores
 #de consumo. Para cada consumidor, são digitados os seguintes dados:
@@ -201,7 +241,8 @@ def q10():
 #imprima:
 #• total de pessoas com menos de 21 anos
 #• total de pessoas com mais de 50 anos
-
+def q15():
+ 
 #16. Sabendo-se que a unidade lógica e aritmética calcula a divisão por meio de subtrações
 #sucessivas, criar um algoritmo que calcule e imprima o resto da divisão de
 #números inteiros lidos. Para isso, basta subtrair o divisor ao dividendo, sucessivamente,
