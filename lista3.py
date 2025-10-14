@@ -253,6 +253,32 @@ def q13():
     total_residencial = 0
     total_comercial = 0
     total_industrial = 0
+    conta_residencial = 0 
+    cont_comercial = 0
+
+    while True:
+        numero = int(input('Número do consumidor (digite 0 para encerrar): '))
+        if numero == 0:
+            break
+
+    kwh = float(input('Quantidade de kwh consumidos: '))
+    tipo = int(input('Tipo de consumidor (1-residencial, 2-comercial, 3-industrial): '))
+
+    if tipo == 1:
+        preco = 0.3
+        total_residencial += kwh
+        conta_residencial+= 1
+    
+    elif tipo == 2:
+        preco = 0.5
+        total_comercial += kwh
+        cont_comercial += 1
+    
+    elif tipo == 3:
+        preco = 0.7
+        total_industrial += kwh
+    else:
+        print('Tipo invalido. Digite 1, 2, ou 3')
 #14. Faça um programa que leia vários números inteiros e apresente o fatorial de cada
 #número. O algoritmo encerra quando se digita um número menor do que 1.n
 
