@@ -219,6 +219,21 @@ def q11():
 #população do país A ultrapasse a população do país B.
 def q12():
     cabecalho('QUESTÃO 12')
+    pais_a = 5000000
+    pais_b = 7000000
+
+    taxa_a = 0.03
+    taxa_b = 0.02
+
+    anos = 0
+
+    while pais_a <= pais_b:
+        pais_a += pais_b * taxa_a
+        pais_b += pais_b * taxa_b
+        anos += 1
+    print(f'Serão necessário {anos} anos para que a população do país A ultrapasse a do país B.')
+    print(f'População final do país A: {int(pais_a)}')
+    print(f'População final do país B: {int(pais_b)}')
 
 #13. Uma empresa de fornecimento de energia elétrica faz a leitura mensal dos medidores
 #de consumo. Para cada consumidor, são digitados os seguintes dados:
@@ -233,7 +248,11 @@ def q12():
 #• O custo total para cada consumidor
 #• O total de consumo para os três tipos de consumidor
 #• A média de consumo dos tipos 1 e 2
-
+def q13():
+    cabecalho('QUESTÃO 13')
+    total_residencial = 0
+    total_comercial = 0
+    total_industrial = 0
 #14. Faça um programa que leia vários números inteiros e apresente o fatorial de cada
 #número. O algoritmo encerra quando se digita um número menor do que 1.n
 
@@ -415,7 +434,7 @@ def q15():
 #analisadas.
 #Obs.: Para encerrar a entrada de dados, digite um número menor que zero para a
 #idade.
-cabecalho('QUESTÃO 20')
+ cabecalho('QUESTÃO 20')
 
 menu = '''''
     [1] - Imprimir nome
