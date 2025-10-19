@@ -261,32 +261,84 @@ def q13():
         if numero == 0:
             break
 
-    kwh = float(input('Quantidade de kwh consumidos: '))
-    tipo = int(input('Tipo de consumidor (1-residencial, 2-comercial, 3-industrial): '))
+        kwh = float(input('Quantidade de kwh consumidos: '))
+        tipo = int(input('Tipo de consumidor (1-residencial, 2-comercial, 3-industrial): '))
 
-    if tipo == 1:
-        preco = 0.3
-        total_residencial += kwh
-        conta_residencial+= 1
-    
-    elif tipo == 2:
-        preco = 0.5
-        total_comercial += kwh
-        cont_comercial += 1
-    
-    elif tipo == 3:
-        preco = 0.7
-        total_industrial += kwh
-    else:
-        print('Tipo invalido. Digite 1, 2, ou 3')
+        if tipo == 1:
+            preco = 0.3
+            total_residencial += kwh
+            conta_residencial += 1
+        
+        elif tipo == 2:
+            preco = 0.5
+            total_comercial += kwh
+            cont_comercial += 1
+        
+        elif tipo == 3:
+            preco = 0.7
+            total_industrial += kwh
+        else:
+            print('Tipo invalido. Digite 1, 2, ou 3')
+        custo = kwh * preco
+        print(f'Custo total para o consumidor {numero}: R${custo:.2f}')
+
+        total_consumo = total_residencial + total_comercial + total_industrial
+        media_12 = 0
+        if (conta_residencial + cont_comercial) > 0:
+            media_12 = (total_residencial + total_comercial) / (conta_residencial + cont_comercial)
+
+        print(f'total consumo residencial: {total_residencial:.2f} kwh')
+        print(f'total consumo comecial: {total_comercial:.2f} kwh')
+        print(f'total consumo industrial: {total_industrial:.2f} kwh')
+        print(f'consumo total geral: {total_consumo:.2f} kwh')
+        print(f'media de consumo (tipo 1 e 2): {media_12:.2f} kwh') 
 #14. Faça um programa que leia vários números inteiros e apresente o fatorial de cada
 #número. O algoritmo encerra quando se digita um número menor do que 1.n
+def q14():
+ while True:
+     n = int(input('Digite um número inteiro (digite 0 para encerrar): '))
+     if n == 0:
+      break
+     
+     fatorial = 1
+     for i in range(1, n + 1):
+         fatorial *= i 
 
+     print(f'O fatorial de {n} é {fatorial}')
+     
 #15. Faça um programa que permita entrar com a idade de várias pessoas e
 #imprima:
 #• total de pessoas com menos de 21 anos
 #• total de pessoas com mais de 50 anos
+# Inicializa os contadores
+cont_menor_21 = 0
+cont_maior_50 = 0
+
+# Loop para receber a idade das pessoas
 def q15():
+ 
+ menor_vinte_um_anos = 0
+ maior_cinquenta_anos = 0
+
+ while True:
+    idade = int(input('Digite a idade (00 para parar): '))
+
+    if idade == 0:
+        break
+    
+    elif idade < 21:
+        menor_vinte_um_anos += 1
+
+    elif idade > 50:
+        maior_cinquenta_anos += 1
+    
+    elif idade >= 21 and idade <=50:
+     continue
+    
+ print(f'total de pessoas com menos de 21 anos: {menor_vinte_um_anos}')
+ print(f'Total de pessoas com mais de 50 anos: {maior_cinquenta_anos}')
+
+
  
 #16. Sabendo-se que a unidade lógica e aritmética calcula a divisão por meio de subtrações
 #sucessivas, criar um algoritmo que calcule e imprima o resto da divisão de
@@ -301,6 +353,20 @@ def q15():
 #  5 é o Divisor
 #  2 é o Quociente (resultado inteiro da divisão)
 #  0 é o Resto da Divisão
+def q16():
+    dividendo = int(input("Digite o dividendo: "))
+    divisor = int(input("Digite o divisor: "))
+
+    quociente = 0
+
+    while dividendo >= divisor:
+        dividendo -= divisor
+        quociente += 1
+
+    resto = dividendo
+
+    print(f"Quociente: {quociente}")
+    print(f"Resto: {resto}")
 
 #17. Crie um programa que possa ler um conjunto de pedidos de compra e
 #calcule o valor total da compra. Cada pedido é composto pelos seguintes campos:
@@ -310,6 +376,25 @@ def q15():
 #• quantidade
 #O programa deverá processar novos pedidos até que o usuário digite 0 (zero)
 #como número do pedido.
+def q17():
+ 
+ total_compra = 0
+ while True:
+     num_pedido = int(input('Número do pedido: '))
+     if num_pedido == 0:
+         break
+     
+     dia = int(input('Dia do pedido: '))
+     mes = int(input('Mês do pedido: '))
+     ano = int(input('Ano do pedido: '))
+     preco = float(input('Preço: '))
+     qtd = int(input('Quantidade: '))
+    
+     valor_pedido = preco * qtd
+     total_compra += valor_pedido
+
+     print(f'Valor do pedido {num_pedido} em {dia}/{mes}/{ano}: R$ {valor_pedido:.2f}\n')
+ print(f'\nValor total de todos os pedidos: R$ {total_compra:.2f}')
 
 #18. Uma pousada estipulou o preço para a diária em R$30,00 e mais uma taxa de
 #serviços diários de:
@@ -319,6 +404,29 @@ def q15():
 #cliente e ao final o total faturado pela pousada.
 #O programa deverá ler novos clientes até que o usuário digite 0 (zero) como
 #número da conta.
+def q18():
+    
+  while True:
+        
+        num_conta = int(input('Digite o número da conta: '))
+        if num_conta == 0:
+            break
+        
+        nome = str(input('Nome: '))
+        num_dias = int(input('Número de dias: '))
+        diaria = 30
+
+        if num_dias < 10:
+            taxa_servico = 15
+        
+        else:
+            taxa_servico = 8
+        
+        conta = (diaria + taxa_servico) * num_dias
+        total_faturado += conta
+
+        print(f'{nome} \nNúmero da conta: {num_conta} \nValor total: {conta}')
+  print(f'Total faturado pela pousada: R${total_faturado}')
 
 #19. Em uma Universidade, os alunos das turmas de informática fizeram uma prova
 #de algoritmos. Cada turma possui um número de alunos. Criar um programa que
@@ -327,6 +435,16 @@ def q15():
 #• média de cada turma;
 #• percentual de reprovados.
 #Obs.: Considere aprovado com nota >= 7.0
+def q19():
+ 
+ aprovados = 0
+ reprovados = 0
+ 
+ num_alunos = int(input('Digite o número de alunos: '))
+
+ for alunos in range(num_alunos):
+     nota = float(input('Digite a nota: '))
+
 
 #20. Uma pesquisa de opinião realizada no Rio de Janeiro, teve as seguintes perguntas:
 #• Qual o seu time de coração?
@@ -460,7 +578,7 @@ def q15():
 #analisadas.
 #Obs.: Para encerrar a entrada de dados, digite um número menor que zero para a
 #idade.
- cabecalho('QUESTÃO 20')
+cabecalho('QUESTÃO 20')
 
 menu = '''''
     [1] - Imprimir nome
