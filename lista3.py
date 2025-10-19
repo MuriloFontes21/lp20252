@@ -437,13 +437,32 @@ def q18():
 #Obs.: Considere aprovado com nota >= 7.0
 def q19():
  
- aprovados = 0
- reprovados = 0
- 
- num_alunos = int(input('Digite o número de alunos: '))
+ while True:
+    turma = input('Nome da turma (0 para encerrar): ')
+    if turma == '0':
+        break
 
- for alunos in range(num_alunos):
-     nota = float(input('Digite a nota: '))
+    num_alunos = int(input('Digite o número de alunos: '))
+    aprovados = 0
+    reprovados = 0
+    soma_notas = 0
+ 
+    for aluno in range(1, num_alunos + 1):
+        nota = float(input('Digite a nota: '))
+        soma_notas += nota
+
+        if nota < 7:
+            reprovados += 1
+        else:
+            aprovados += 1
+    
+    media_turma = soma_notas / num_alunos
+    percentual_reprovados = (reprovados / num_alunos) * 100
+
+    print(f'Média da turma: {media_turma:.2f}')
+    print(f'Quantidade de alunos aprovados: {aprovados}')
+    print(f'Percentual de reprovados: {percentual_reprovados:.1f}%')
+
 
 
 #20. Uma pesquisa de opinião realizada no Rio de Janeiro, teve as seguintes perguntas:
@@ -466,6 +485,84 @@ def q19():
 #• o número de pessoas de Niterói torcedoras do Fluminense
 #3.12. Exercícios da Aula 73
 #Obs.: O programa encerra quando se digita 0 para o time.
+def q20():
+    fluminense = 0
+    botafogo = 0
+    vasco = 0
+    flamengo = 0
+    outro_time = 0
+    rj = 0
+    niteroi = 0
+    outro_lugar = 0
+
+    while True:
+     time = int(input('qual o seu time do coração? 1-Fluminense 2-Botafogo 3-vasco 4-Flamengo 5-Outro (0- para encerrar): '))
+     
+     if time == 0:
+         break
+
+     elif time == 1:
+         fluminense +=1
+     
+     elif time == 2:
+         botafogo += 1
+     
+     elif time == 3:
+         vasco += 1
+    
+     elif time == 4:
+         flamengo += 1
+
+     elif time == 5:
+         outro_time += 1
+     else:
+         print('Número inválido.')
+
+     local = input('Onde você mora? 1-Rio de Janeiro 2-Niterói 3-Outro:  ')
+     if local == 1:
+         rj += 1
+
+     elif local == 2:
+         niteroi += 1
+
+     elif local == 3:
+         outro_lugar += 1
+     
+    
+     salario = float(input('Qual o seu salário?: '))
+     
+     if time == 2:
+        salario_botafogo_total += salario
+        salario_botafogo_cont += 1
+
+    #
+    if local == 1 and time == 5:
+        rio_outros += 1
+
+    
+    if local == 2 and time == 1:
+        niteroi_fluminense += 1
+
+
+    print(f'''
+    O número de torcedores do Fluminense é de: {fluminense} pessoas.
+    O número de torcedores do Botafogo é de: {botafogo} pessoas.
+    O número de torcedores do Vasco é de: {vasco} pessoas.
+    O número de torcedores do Flamengo é de: {flamengo} pessoas.
+
+          ''')
+
+    if salario_botafogo_cont > 0:
+        media_botafogo = salario_botafogo_total / salario_botafogo_cont
+    else:
+        media_botafogo = 0
+
+    print(f"Média salarial dos torcedores do Botafogo: R$ {media_botafogo:.2f}")
+    print(f"Número de moradores do RJ torcedores de outros clubes: {rio_outros}")
+    print(f"Número de moradores de Niterói torcedores do Fluminense: {niteroi_fluminense}")
+    
+
+
 
 #21. Em uma universidade cada aluno possui os seguintes dados:
 #• Renda pessoal;
