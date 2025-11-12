@@ -2,7 +2,7 @@ import csv
 
 ARQUIVO = "filmes.csv"
 
-def carregar_filmes():
+def carregarfilmes():
     filmes = []
     try:
         with open(ARQUIVO, newline='', encoding='utf-8') as f:
@@ -13,14 +13,14 @@ def carregar_filmes():
         pass
     return filmes
 
-def salvar_filmes(filmes):
+def salvarfilmes(filmes):
     with open(ARQUIVO, 'w', newline='', encoding='utf-8') as f:
         campos = ['título', 'ano', 'gênero', 'avaliação']
         escritor = csv.DictWriter(f, fieldnames=campos)
         escritor.writeheader()
         escritor.writerows(filmes)
 
-def listar_filmes(filmes):
+def listarfilmes(filmes):
     print("\n--- Filmes em catálogo ---")
     if not filmes:
         print("Nenhum filme cadastrado.\n")
@@ -29,7 +29,7 @@ def listar_filmes(filmes):
             print(f"{f['título']} ({f['ano']}) - {f['gênero']} - Avaliação: {f['avaliação']}")
         print()
 
-def buscar_por_genero(filmes):
+def buscargenero(filmes):
     genero = input("Digite o gênero: ").strip().lower()
     encontrados = [f for f in filmes if f['gênero'].lower() == genero]
     print()
@@ -41,7 +41,7 @@ def buscar_por_genero(filmes):
     print()
 
 
-def buscar_por_ano(filmes):
+def buscarano(filmes):
     ano = input("Digite o ano: ").strip()
     encontrados = [f for f in filmes if f['ano'] == ano]
     print()
@@ -52,16 +52,16 @@ def buscar_por_ano(filmes):
         print("Nenhum filme encontrado nesse ano.")
     print()
 
-def adicionar_filme(filmes):
+def adicionarfilme(filmes):
     titulo = input("Título: ")
     ano = input("Ano: ")
     genero = input("Gênero: ")
     avaliacao = input("Avaliação 0 a 10: ")
     filmes.append({'título': titulo, 'ano': ano, 'gênero': genero, 'avaliação': avaliacao})
-    salvar_filmes(filmes)
+    salvarfilmes(filmes)
     print("O filme foi adicionado!\n")
 
-def calcular_media_avaliacoes(filmes):
+def calcularmediaavaliacoes(filmes):
     if not filmes:
         print("Nenhum filme cadastrado.\n")
         return
@@ -70,7 +70,7 @@ def calcular_media_avaliacoes(filmes):
     print(f"Média das avaliações: {media:.2f}\n")
 
 def menu():
-    filmes = carregar_filmes()
+    filmes = carregarfilmes()
     while True:
         print("""
         CATÁLOGO
@@ -83,15 +83,15 @@ def menu():
 """)
         opcao = input("Escolha uma opção: ")
         if opcao == '1':
-            listar_filmes(filmes)
+            listarfilmes(filmes)
         elif opcao == '2':
-            buscar_por_genero(filmes)
+            buscargenero(filmes)
         elif opcao == '3':
-            buscar_por_ano(filmes)
+            buscarano(filmes)
         elif opcao == '4':
-            adicionar_filme(filmes)
+            adicionarfilme(filmes)
         elif opcao == '5':
-            calcular_media_avaliacoes(filmes)
+            calcularmediaavaliacoes(filmes)
         elif opcao == '0':
             print("Saindo...")
             break
